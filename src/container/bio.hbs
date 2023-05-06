@@ -1,0 +1,138 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    {{#with person}}
+    <main>
+        <section>
+            {{>title data="Person" big=true}}
+        </section>
+        <ul>
+
+            <strong>
+                <div> Name: {{name}} </div>
+            </strong>
+
+            <p>
+            <div> Age: {{age}} </div>
+            </p>
+            <p>
+            <div> Gender: {{gender}} </div>
+            </p>
+            <p>
+                {{#with address}}
+            <div>
+                <em>Adress:</em>{{street}},{{city}},{{state}},{{zip}},{{country}},
+            </div>
+            {{/with}}
+            </p>
+        </ul>
+        <hr>
+        <section>
+            {{>title data="Education" big=true}}
+        </section>
+        <ul>
+
+            {{#each education}}
+            <div>
+
+                Degree: {{degree}} <br>
+                Major: {{major}}<br>
+                University: {{university}}<br>
+                GraduationYear: {{graduationYear}}
+
+            </div>
+            </p>
+            {{/each}}
+        </ul>
+        <hr>
+        <section>
+            {{>title data="Work Experience" big=true}}
+        </section>
+        <ul>
+            {{#each workExperience}}
+            company:{{company}}<br>
+            title:{{title}}<br>
+            startDate: {{startDate}}<br>
+            endDate:{{endDate}}<br>
+            responsibilities:{{responsibilities}}<br>
+            <br>
+            year_founded:{{year_founded}}<br>
+            industry:{{industry}}<br><br><br>
+            <ul>
+                <strong>Employees</strong><br>
+                {{#each employees}}
+                name: {{name}}<br>
+                position: {{position}}<br>
+                department: {{departament}}
+                <ul>
+                    {{#each projects}}
+                    <li>
+                        {{name}}<br>
+                        {{description}}<br>
+                        {{status}}
+                    </li>
+                </ul>
+                <p>
+                <ul>
+                    {{#each teams}}
+                    <li>
+                        {{team_name}}
+                        {{#with team_leader}}
+                        <ul>
+                            <li>
+                                {{name}}<br>
+                                {{title}}<br>
+                                {{email}}
+                            </li>
+                        </ul>
+                        {{/with}}<br>
+                        {{#each team_members}}
+                        <ul>
+                            <li>
+                                {{name}}<br>
+                                {{title}}<br>
+                                {{email}}<br>
+                                {{skills}}
+                            </li>
+                            <br>
+                            {{#each projects }}
+                            <ul>
+                                <li>
+                                    {{name}}<br>
+                                    {{description}}<br>
+                                    {{technologies}}<br><br>
+
+                                    {{#each team_members}}
+                                    <p> <strong>{{name }}</strong></p>
+                                    {{title}}
+                                    {{/each}}
+                                </li>
+                            </ul>
+                            {{/each}}
+                        </ul>
+                        {{/each}}
+
+                    </li>
+                    {{/each}}
+                </ul>
+                </p>
+                {{/each}}
+
+            </ul>
+            {{/each}}
+            {{/each}}
+        </ul>
+
+
+
+    </main>
+    {{/with}}
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
