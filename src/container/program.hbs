@@ -4,38 +4,60 @@
 --}}
 
 <div>
-    <main>
+    <strong>
         <section>
             {{>title data="Excursion program" big=true}}
         </section>
-        {{#with program}}
+    </strong>
+    {{#with program}}
+    <strong>
         {{#with excursion}}
         {{name}}<br>
         {{#with location}}
         {{city}},{{country}}<br>
         {{/with}}
         {{date}}
-        <ul>
-            <li>
-                {{#each program}}
-                {{name}},{{type}},{{duration}}<br>
-                {{#with details}}
-                {{#with museum}}
-                <strong> {{name}}<br></strong>
+    </strong>
+    <ul>
+        <li>
+            {{#each program}}
+            <hr><strong>{{name}}</strong>
+            <hr>{{type}},{{duration}}<br>
+            {{#with details}}
+            {{#with museum}}
+            {{name}}<br>
+            {{#with location}}
+            {{address}},{{city}},{{country}}<br>
+            {{/with}}
+            {{#each exhibits}}
+            <hr><strong>{{name}}</strong><br>{{artist}}<br>{{description}},{{audio_guide}}
+            <hr><br>
+            {{/each}}
+            {{/with}}
+            <p>
+                {{#with venue}}
+                <strong>{{name}}</strong><br>
                 {{#with location}}
-                {{address}},{{city}},{{country}}<br>
-                {{/with}}
-                {{#each exhibits}}
-                {{name}},{{artist}},{{description}},
-
-                {{/each}}
+                {{address}}.{{city}}.{{country}}
                 {{/with}}
                 {{/with}}
-                {{/each}}
-            </li>
-        </ul>
-        {{/with}}
-        {{/with}}
+            </p>
+            {{#each performers}}
+            {{name}}<br>
+            {{type}}
+            {{/each}}<br>
+            {{#with guide}}
+            <div>Guide:</div>
+            {{name}}<br>
+            {{language}}<br>
+            {{rating}}
+            {{/with}}
+            {{/with}}
+            {{/each}}
+        </li>
+    </ul>
+    {{/with}}
+    {{/with }}
     </main>
 </div>
 
