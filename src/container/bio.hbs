@@ -4,54 +4,88 @@
 --}}
 
 <div>
-    {{#with person}}
     <main>
         <section>
-            {{>title data="Person" big=true}}
+            {{>title data="BIO" big=true}}
         </section>
+
         <ul>
-
             <strong>
-                <div> Name: {{name}} </div>
+                name: {{name}}<br>
+                birthdate: {{birthdate}}<br>
+                birthplace: {{birthplace}}<br>
+                deathdate: {{deathdate}}<br>
+                deathplace: {{deathplace}}<br>
+                nationality: {{nationality}}<br>
+                occupation: {{occupation}}<br>
+                known_for: {{known_for}}
             </strong>
-
-            <p>
-            <div> Age: {{age}} </div>
-            </p>
-            <p>
-            <div> Gender: {{gender}} </div>
-            </p>
-            <p>
-                {{#with address}}
-            <div>
-                <em>Adress:</em>{{street}},{{city}},{{state}},{{zip}},{{country}},
-            </div>
-            {{/with}}
-            </p>
         </ul>
-        <hr>
         <section>
             {{>title data="Education" big=true}}
         </section>
         <ul>
-
             {{#each education}}
-            <div>
+            {{degree}}<br>
+            {{field}}<br>
+            {{institution}}<br>
+            {{year}}
+            {{/each}}
 
-                Degree: {{degree}} <br>
-                Major: {{major}}<br>
-                University: {{university}}<br>
-                GraduationYear: {{graduationYear}}
-
-            </div>
-            </p>
+        </ul>
+        <section>
+            {{>title data="Notable Publications" big=true}}
+        </section>
+        <ul>
+            {{#each notable_publications}}
+            <li>
+                {{title}}<br>
+                {{publisher}}<br>
+                {{year}}
+            </li>
+            {{/each}}
+        </ul>
+        <section>
+            {{>title data="Partners" big=true}}
+        </section>
+        <ul>
+            {{#each partners}}
+            {{name}}<br>
+            {{relationship}}<br>
+            {{years}}
+            {{/each}}
+            <li>
+                {{#each awards}}
+                {{title}}<br>
+                {{year}}<br>
+                {{discription}}
+                {{/each}}
+            </li>
+        </ul>
+        <ul>
+            <hr>
+            {{influences}}
+            <hr>
+            {{influenced}}
+            <hr>
+            {{quotes}}
+            <hr>
+        </ul>
+        <ul>
+            {{#each major_discoveries}}
+            {{title}}<br>
+            {{year}}<br>
+            {{description}}
             {{/each}}
         </ul>
         <hr>
-        <section>
-            {{>title data="Work Experience" big=true}}
-        </section>
         <ul>
+            {{#with contributions}}
+            {{title}}<br>
+            {{description}}<br>
+            {{year}}<br>
+            {{field}}
+            {{/with}}
             {{#each workExperience}}
             company:{{company}}<br>
             title:{{title}}<br>
@@ -126,12 +160,10 @@
             </ul>
             {{/each}}
             {{/each}}
+            >>>>>>> db98c5bb529f2fea251c0c98f098a620504bc61c
         </ul>
-
-
-
+        <hr>
     </main>
-    {{/with}}
 </div>
 
 {{!--

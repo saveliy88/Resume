@@ -1,0 +1,67 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <strong>
+        <section>
+            {{>title data="Excursion program" big=true}}
+        </section>
+    </strong>
+    {{#with program}}
+    <strong>
+        {{#with excursion}}
+        {{name}}<br>
+        {{#with location}}
+        {{city}},{{country}}<br>
+        {{/with}}
+        {{date}}
+    </strong>
+    <ul>
+        <li>
+            {{#each program}}
+            <hr><strong>{{name}}</strong>
+            <hr>{{type}},{{duration}}<br>
+            {{#with details}}
+            {{#with museum}}
+            {{name}}<br>
+            {{#with location}}
+            {{address}},{{city}},{{country}}<br>
+            {{/with}}
+            {{#each exhibits}}
+            <hr><strong>{{name}}</strong><br>{{artist}}<br>{{description}},{{audio_guide}}
+            <hr><br>
+            {{/each}}
+            {{/with}}
+            <p>
+                {{#with venue}}
+                <strong>{{name}}</strong><br>
+                {{#with location}}
+                {{address}}.{{city}}.{{country}}
+                {{/with}}
+                {{/with}}
+            </p>
+            {{#each performers}}
+            {{name}}<br>
+            {{type}}
+            {{/each}}<br>
+            {{#with guide}}
+            <div>Guide:</div>
+            {{name}}<br>
+            {{language}}<br>
+            {{rating}}
+            {{/with}}
+            {{/with}}
+            {{/each}}
+        </li>
+    </ul>
+    {{/with}}
+    {{/with }}
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
