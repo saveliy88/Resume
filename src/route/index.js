@@ -200,7 +200,7 @@ router.get('/education', function (req, res) {
 router.get('/work', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('work', {
-    layout: 'big',
+    layout: 'basic',
 
     page: {
       title: `Resume | Work`,
@@ -273,6 +273,7 @@ router.get('/work', function (req, res) {
 router.get('/person', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
+    layout: 'basic',
     page: {
       title: `Resume | Person`,
     },
@@ -377,6 +378,7 @@ router.get('/person', function (req, res) {
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
+    layout: 'basic',
     page: {
       title: `Resume | Bio`,
     },
@@ -477,6 +479,7 @@ router.get('/bio', function (req, res) {
 router.get('/program', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
+    layout: 'basic',
     page: {
       title: `Resume | Program`,
     },
@@ -564,9 +567,10 @@ router.get('/program', function (req, res) {
 // ================================================================
 // ================================================================
 
-router.get('/basic', function (req, res) {
+router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
+    layout: 'basic',
     page: {
       title: `Resume | Web`,
     },
