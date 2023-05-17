@@ -6,10 +6,45 @@
 <div>
     <strong>
         <section>
-            {{>title data="Web" big=true}}
+            <span class="badge bg-secondary"> {{>title data="JS" big=true}}</span>
         </section>
     </strong>
-
+    <h1 style="color: chartreuse;">{{name}}</h1>
+    {{description}}<br>
+    {{#with history}}
+    {{year}},{{founder}}
+    {{/with}}<br>
+    <button type="button" class="btn btn-info">{{types}}</button>
+    {{#with syntax}}
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h4>variables:</h4>{{variables}}
+        </li><br>
+        <li class="list-group-item">
+            <h4>functions:</h4>{{functions}}
+        </li><br>
+        <li class="list-group-item">
+            <h4>conditionals:</h4>{{conditionals}}
+        </li><br>
+        <li class="list-group-item">
+            <h4>loops:</h4>{{loops}}
+        </li><br>
+        <li class="list-group-item">
+            <h4>classes:</h4>{{classes}}
+        </li><br>
+    </ul>
+    {{/with}}
+    <hr>{{features}}
+    <hr>
+    <ul>
+        <li>{{tools}}</li>
+    </ul>
+    {{#each community}}
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+        <button type="button" class="btn btn-primary">{{name}}</button>
+        <button type="button" class="btn btn-primary">{{type}}</button>
+    </div>
+    {{/each}}
 
     </main>
 </div>
