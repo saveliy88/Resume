@@ -1,0 +1,150 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <strong>
+        <section>
+            <span class="badge bg-secondary" style="color: brown;"> {{>title data="CAR" big=true}}</span>
+        </section>
+    </strong>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h1>{{make}}{{model}}</h1>
+        </li>
+        <li class="list-group-item">
+            <h2>{{year}}</h2>
+        </li>
+        <li class="list-group-item">
+            <h2>{{color}}</h2>
+        </li>
+        <li class="list-group-item">
+            <h2>interior seats</h2>
+            {{#with features}}
+            {{#with interior}}
+            {{#with seats}}
+            <ul class="list-group">
+                <li class="list-group-item">material:{{material}}</li>
+                <li class="list-group-item">color:{{color}}</li>
+                <li class="list-group-item">heated:{{heated}}</li>
+                <li class="list-group-item">ventilated:{{ventilated}}</li>
+            </ul>
+            {{/with}}
+            {{#with dashboard}}
+            <h2>interior dashboard</h2>
+            <ul class="list-group">
+                <li class="list-group-item">material:{{material}}</li>
+                <li class="list-group-item">color:{{color}}</li>
+                <li class="list-group-item">
+                    {{#with display}}
+                    <h3>Display</h3>
+                    type: {{type}},
+                    size: {{size}},
+                    resolution:{{resolution}},
+                    touchscreen:{{touchscreen}}
+                    {{/with}}
+                </li>
+            </ul>
+            {{/with}}
+            {{#with audio}}
+            <h2>interior audio</h2>
+            <ul class="list-group">
+                <li class="list-group-item">system:{{system}}</li>
+                <li class="list-group-item">speakers:{{speakers}}</li>
+                <li class="list-group-item">subwoofer:{{subwoofer}}</li>
+                <li class="list-group-item">bluetooth:{{bluetooth}}</li>
+                <li class="list-group-item">USB:{{USB}}</li>
+            </ul>
+            {{/with}}
+            {{/with}}
+            {{#with exterior}}
+            <h2>Exterior wheels</h2>
+            {{#with wheels}}
+            <ul class="list-group">
+                <li class="list-group-item">size:{{size}}</li>
+                <li class="list-group-item">type:{{type}}</li>
+                <li class="list-group-item">color:{{color}}</li>
+            </ul>
+            {{/with}}
+            <h2>Exterior headlights</h2>
+            {{#with headlights}}
+            <ul class="list-group">
+                <li class="list-group-item">brightness:{{brightness}}</li>
+                <li class="list-group-item">type:{{type}}</li>
+                <li class="list-group-item">automatic:{{automatic}}</li>
+            </ul>
+            {{/with}}
+            <h2>Exterior sunroof</h2>
+            {{#with sunroof}}
+            <ul class="list-group">
+                <li class="list-group-item">size:{{size}}</li>
+                <li class="list-group-item">type:{{type}}</li>
+                <li class="list-group-item">automatic:{{automatic}}</li>
+            </ul>
+            {{/with}}
+            {{/with}}
+            {{#with safety}}
+            <h2>Safety</h2>
+            <h3>Safety airbags</h3>
+            {{#with airbags}}
+            front: {{front}},<br>
+            side: {{side}},<br>
+            knee: {{knee}},<br>
+            rear: {{rear}},
+            {{/with}}
+            <h3>Safety assistance</h3>
+            {{#with assistance}}
+            blind_spot_monitoring: {{blind_spot_monitoring}},<br>
+            rear_cross_traffic_alert: {{rear_cross_traffic_alert}},<br>
+            lane_departure_warning: {{lane_departure_warning}},<br>
+            adaptive_cruise_control: {{adaptive_cruise_control}},<br>
+            collision_warning: {{collision_warning}},
+            {{/with}}
+            {{/with}}
+            {{/with}}
+        </li>
+        <h2>Engine</h2>
+        {{#with engine}}
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group"> <button type="button"
+                    class="btn btn-primary">{{type}}</button>
+                <button type="button" class="btn btn-primary">{{displacement}}</button>
+                <button type="button" class="btn btn-primary">{{horsepower}}</button>
+                <button type="button" class="btn btn-primary">{{torque}}</button>
+            </div>
+            <li>
+                <h3>transmission</h3>
+                {{#with transmission}}
+                {{type}},{{gears}}
+                {{/with}}
+            </li>
+            {{/with}}
+            <li>
+                {{#with fuel_economy}}
+                <h3>fuel_economy</h3>
+                city{{city}},higway{{higway}},combined{{combined}}
+                {{/with}}
+            </li>
+    </ul>
+    <ul>
+        <h1>Price</h1>
+        {{#with price}}
+        base{{base}}<br>
+        destination {{destination}}
+        {{#with options}}
+        navigation {{navigation}}<br>
+        moonroof {{moonroof}}<br>
+        premium_paint {{premium_paint}}
+        {{/with}}<br>
+        <h3>TOTAL</h3>{{total}}
+        {{/with}}
+
+    </ul>
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
