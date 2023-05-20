@@ -1,0 +1,41 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <strong>
+        <section>
+            <span class="badge bg-secondary" style="color: chartreuse;"> {{>title data="TASK22" big=true}}</span>
+        </section>
+        {{#with page_header}}
+        <div class="display-1 text-center">{{title}}</div>
+        <p class="display-6 text-center">{{description}}</p>
+        {{/with}}
+        {{#with section}}
+        {{#with about_us}}
+        {{#with title_list}}
+        <p class="display-2 text-secondary text-end">{{main}}</p>
+        <p class="display-7 text-secondary text-end">{{sub}}</p>
+        {{/with}}
+        <button type="button" class="btn btn-outline-primary">{{button.text}}</button>
+        {{/with}}
+        {{#with advantage}}
+        <div class="display-4 text-secondary ">{{title}}</div>
+        {{#with efficiency}}
+        <div class="display-5 text-secondary ">{{title}}</div>
+        <p class="display-6 text-dark">{{sub_title}}</p>
+        <p class="display-7 text-dark">{{description}}</p>
+        <button type="button" class="btn btn-outline-warning">{{button}}</button>
+        {{/with}}
+        {{/with}}
+        {{/with}}
+    </strong>
+
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
