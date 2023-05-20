@@ -1,0 +1,97 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <strong>
+        <section>
+            <span class="badge bg-secondary" style="color: chartreuse;"> {{>title data="TASK21" big=true}}</span>
+        </section>
+    </strong>
+    {{#with heading}}
+    {{#with main}}
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            <div class="display-1 text-center">{{title}}</div>
+            <br>
+            <p class="card-text display-7">{{text}}</p>
+            {{#with button_text}}
+            <a href="#" class="btn btn-primary">{{solid}}</a>
+            <a href="#" class="btn btn-primary">{{outline}}</a>
+            {{/with}}
+        </div>
+    </div>
+    {{/with}}
+    <br>
+    {{#with second}}
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            <div class="display-2 text-center">{{title}}</div>
+            <br>
+            <p class="card-text display-7">{{text}}</p>
+            {{#with button_text}}
+            <a href="#" class="btn btn-light text-dark">{{solid}}</a>
+            <a href="#" class="btn btn-secondary">{{outline}}</a>
+            {{/with}}
+        </div>
+    </div>
+    {{/with}}
+    <br>
+    {{#with subblock}}
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            <div class="display-2 text-center">{{title}}</div>
+            <br>
+            <p class="card-text display-7">{{text}}</p>
+            {{#with button_text}}
+            <a href="#" class="btn btn-light text-dark">{{solid}}</a><br>
+            <a href="#" class="btn btn-dark">{{outline}}</a>
+            {{/with}}
+        </div>
+    </div>
+    {{/with}}
+    {{/with}}
+    {{#with nested_display}}
+    <div class="display-1 text-center">{{title}}</div>
+    <br>
+    {{#with children_display}}
+    <div class="card" style="width: 35rem;">
+        <p class="card-body">
+        <p class="display-4 text-center">{{title}}</p>
+        <p class="card-text display-7">{{text}}</p>
+        <a href="#" class="btn btn-warning">{{button.text}}</a>
+        </p>
+    </div>
+    {{/with}}
+    {{/with}}
+    {{#with paragraph}}
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            <div class="display-5 text-center">{{title}}</div>
+            <br>
+            <p class="card-text display-7">{{text}}</p>
+            {{#with button}}
+            <a href="#" class="btn btn-light text-dark">{{text}}</a>
+            <a href="#" class="btn btn-secondary">{{url}}</a>
+            {{/with}}
+        </div>
+    </div>
+    <div class="card" style="width: 35rem;">
+        <div class="card-body">
+            {{#each list_name}}
+            <p><a class="link-opacity-100" href="#">{{text}}</a></p>
+            <p><a class="link-opacity-100" href="#">{{url}}</a></p>
+
+            {{/each}}
+        </div>
+    </div>
+    {{/with}}
+
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
